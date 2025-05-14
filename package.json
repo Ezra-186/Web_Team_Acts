@@ -1,5 +1,5 @@
 {
-  "name": "my-backend-api",
+  "name": "cse341-ww-student-code",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -9,9 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^5.1.0"
   }
 }
