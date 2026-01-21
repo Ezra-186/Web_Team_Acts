@@ -1,0 +1,125 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Temples API",
+    "description": "CSE 341 W02 Team Activity: Swagger documentation for temple routes",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/temples/": {
+      "get": {
+        "summary": "Get all temples",
+        "description": "Returns all temples. Requires apiKey header.",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a temple",
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "temple_id": {
+                  "type": "number",
+                  "example": 999
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Example Temple"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "Somewhere"
+                },
+                "dedicated": {
+                  "type": "string",
+                  "example": "2026-01-01"
+                },
+                "additionalInfo": {
+                  "type": "boolean",
+                  "example": false
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/temples/{temple_id}": {
+      "get": {
+        "summary": "Get one temple by temple_id",
+        "description": "Returns one temple. Requires apiKey header.",
+        "parameters": [
+          {
+            "name": "temple_id",
+            "in": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
